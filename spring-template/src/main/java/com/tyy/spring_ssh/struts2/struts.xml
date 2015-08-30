@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 配置了系列常量 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<constant name="struts.action.extension" value="" />	<!-- 配置后缀 -->
+	
+	<package name="lee" extends="struts-default">
+		<!-- <action name="login" class="loginAction"> -->	<!-- 不使用autowire时的配置 -->
+		<action name="login" class="com.tyy.spring_ssh.struts2.action.LoginAction">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success" type="redirect">/WEB-INF/content/welcome.jsp</result>
+		</action>
+		
+		<!-- 直接访问视图页面 -->
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

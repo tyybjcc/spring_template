@@ -1,0 +1,1 @@
+一般用来读取二进制数据使用ByteArrayResource而不是InputStreamResource

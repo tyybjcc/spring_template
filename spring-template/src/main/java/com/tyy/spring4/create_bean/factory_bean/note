@@ -1,0 +1,9 @@
+只要继承了FactoryBean的bean，Spring会自动通过getObject()获取对象
+
+本Demo展示的功能类似：
+FieldRetrievingFactoryBean
+
+Spring内置了一些有用的FactoryBean实现类:
+PropertyPathFactoryBean:功能类似于getters
+FieldRetrievingFactoryBean:获取静态成员
+MethodInvokingFactoryBean:调用方法

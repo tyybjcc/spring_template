@@ -1,0 +1,14 @@
+注意：
+通过设置ApplicationListener类型参数，可以处理特定的ApplicationEvent
+
+Spring内置的ApplicationEvent在：
+org.springframework.context.event
+
+特别的，对于DispatcherServlet的web开发，有
+RequestHandledEvent
+
+
+附：
+所有找到ApplicationEvent方法
+Ctrl+Shift+T搜索ApplicationEvent
+找到ApplicationEvent后，使用Ctrl+T找到其所有子类

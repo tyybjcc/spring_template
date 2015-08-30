@@ -1,0 +1,4 @@
+对抽象类的抽象get方法 配置<lookup-method> 实现singleton对象的prototype注入
+
+可以认为：
+这是Spring对享元模式的一种实现

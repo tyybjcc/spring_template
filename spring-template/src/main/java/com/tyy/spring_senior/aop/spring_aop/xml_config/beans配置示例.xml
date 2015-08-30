@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+	<aop:config>
+		<!-- aop config -->
+		<aop:aspect id="fourAdviceAspect" ref="fourAdviceBean" order="2">
+			<aop:after pointcut="execution(* org.crazyit.app.service.impl.*.*(..))" method="release"/>
+			<aop:before pointcut="execution(* org.crazyit.app.service.impl.*.*(..))" method="authority"/>
+			<aop:after-returning pointcut="execution(* org.crazyit.app.service.impl.*.*(..))" method="log" returning="rvt"/>
+			<aop:around pointcut="execution(* org.crazyit.app.service.impl.*.*(..))" method="processTx"/>
+		</aop:aspect>
+		
+		<!-- pointcut reuse -->
+		<aop:aspect id="afterThrowingAdviceAspect" ref="afterThrowingAdviceBean">
+			<aop:pointcut expression="execution(* org.crazyit.app.service.impl.*.*(..))" id="myPointcut"/>
+			<aop:after-throwing pointcut-ref="myPointcut" method="doRecoveryActions" throwing="ex"/>
+		</aop:aspect>
+	</aop:config>
+		
+</beans>

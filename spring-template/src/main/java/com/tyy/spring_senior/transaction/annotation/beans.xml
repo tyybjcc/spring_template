@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+	
+
+	<!-- 配置一个业务逻辑Bean -->
+	<!-- <bean id="newsDao" class="org.crazyit.app.dao.impl.NewsDaoImpl"
+		p:ds-ref="dataSource"/> -->
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource"/>
+		
+	<!-- 定义数据源Bean，使用C3P0数据源实现，并注入数据源的必要信息 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close"
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://localhost/test"
+		p:username="root"
+		p:password=""
+		p:maxTotal="40"
+		p:minIdle="5"
+		p:maxIdle="10"
+		p:maxWaitMillis="10000"
+		/>
+	
+	<!-- transaction注解支持 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="userDao" class="com.tyy.spring_senior.transaction.annotation.dao.UserDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

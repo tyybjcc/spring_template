@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+ updateCheck="false">
+ <!-- 参考文章 http://www.tuicool.com/articles/m2qAfqn -->
+ 	<!-- 
+ 	可以使用：
+ 	* user.home	用户主目录
+ 	* user.dir	用户当前工作目录（也就是classpath）
+ 	* java.io.tmpdir	默认临时文件路径
+ 	如果要看到缓存文件，需要设置<cache>中overflowToDisk为true
+ 	 -->
+	<diskStore path="user.dir/ehcache" />
+	<defaultCache 
+		eternal="false"
+		maxElementsInMemory="1000"
+		maxElementsOnDisk="1000000"
+		overflowToDisk="false"
+		diskPersistent="false"
+		
+		timeToIdleSeconds="10"
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LRU"
+	/>
+	
+	
+	
+	
+	<!-- eternal 对象是否永不过期，若为true，则timeToIdleSeconds，timeToLiveSeconds无效 -->
+	
+	<!-- overflowToDisk 对象必须实现Serializable接口 -->
+	<!-- 虚拟机关闭数据是否保存diskPersistent -->
+	<!-- diskSpoolBufferSizeMB磁盘缓冲区大小 -->
+	<!-- diskExpiryThreadIntervalSeconds 磁盘失效线程运行时间，默认120s -->
+	
+	<!-- timeToIdleSeconds 允许对象空闲时间，超时被清楚 -->
+	<!-- timeToLiveSeconds 允许对象最大生存时间，超时被清楚 -->
+	
+	<!-- memoryStoreEvictionPolicy 达到maxElementsInMemory时清楚策略，默认LRU -->
+	<cache name="user"
+		eternal="false"	
+		maxElementsInMemory="10"
+		maxElementsOnDisk="1000000"
+		overflowToDisk="false"
+		diskPersistent="false"
+		diskSpoolBufferSizeMB="10"
+		
+		timeToIdleSeconds="10"
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LRU"
+	/>
+	
+	<cache name="Scott"
+		eternal="false"
+		maxElementsInMemory="1"
+		maxElementsOnDisk="1000000"
+		overflowToDisk="true"
+		diskPersistent="true"
+		
+		timeToIdleSeconds="10"
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LRU"
+	/>
+ 
+</ehcache>

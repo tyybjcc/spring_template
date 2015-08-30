@@ -1,0 +1,446 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tyy.spring</groupId>
+  <artifactId>spring-template</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>spring-template Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<!-- servlet -->
+  	<servlet.jstl.version>1.2</servlet.jstl.version>
+  	<servlet.api.version>3.1.0</servlet.api.version>
+  
+  	<!-- spring -->
+  	<spring.version>4.1.4.RELEASE</spring.version>
+  	
+  	<!-- struts -->
+  	<struts.version>2.3.24</struts.version>
+  	
+  	<!-- db -->
+  	<mysql.connector.version>5.1.36</mysql.connector.version>
+  	<commons.dbcp2.version>2.1</commons.dbcp2.version>
+  	<datasource.druid.version>1.0.15</datasource.druid.version>
+  	<c3p0.version>0.9.1.1</c3p0.version>
+  	<mybatis.version>3.3.0</mybatis.version>
+  	<mybatis.spring.version>1.2.3</mybatis.spring.version>
+  	<mybatis.generator.version>1.3.2</mybatis.generator.version>
+	<hibernate.version>4.3.11.Final</hibernate.version>
+  	
+  	<!-- cache -->
+  	<ehcache.version>2.6.11</ehcache.version>
+  	
+  	
+  	<!-- aop -->
+  	<aspectj.version>1.8.6</aspectj.version>
+  	
+  	<!-- logging -->
+  	<log4j.version>1.2.17</log4j.version>
+  	<slf4j.version>1.7.12</slf4j.version>
+  	
+  	<!-- test -->
+  	<junit.version>4.12</junit.version>
+  	
+  	
+  	<!-- jackson -->
+  	<jackson.version>2.6.0</jackson.version>
+  	<!-- dom4j -->
+  	<dom4j.version>1.6.1</dom4j.version>
+  	
+  	
+  </properties>
+  
+  
+  <dependencies>
+  
+  	<!-- servlet -->
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlet.api.version}</version>
+		<scope>provided</scope>
+	</dependency>
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${servlet.jstl.version}</version>
+		<scope>provided</scope>
+	</dependency>
+		
+  	
+  	
+  	<!-- Spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- Spring MVC -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- Spring JDBC -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- Spring ORM -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+		
+	<!-- Spring Test -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+		<scope>test</scope>
+	</dependency>
+	
+	<!-- struts2 -->
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-core</artifactId>
+		<version>${struts.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-spring-plugin</artifactId>
+		<version>${struts.version}</version>
+	</dependency>
+		
+		
+	
+	
+	
+	<!-- MySQL Connector/J -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.connector.version}</version>
+	</dependency>
+	
+	<!-- Datasource Connection Pooling -->
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-dbcp2</artifactId>
+		<version>${commons.dbcp2.version}</version>
+	</dependency>
+		
+  	<!-- Druid Datasource -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>druid</artifactId>
+		<version>${datasource.druid.version}</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>c3p0</groupId>
+	  <artifactId>c3p0</artifactId>
+	  <version>${c3p0.version}</version>
+	</dependency>
+	
+	<!-- MyBatis -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${mybatis.version}</version>
+	</dependency>
+	<!--Mybatis Spring -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${mybatis.spring.version}</version>
+	</dependency>
+	<!-- Mybatis Generator -->
+	<dependency>
+		<groupId>org.mybatis.generator</groupId>
+		<artifactId>mybatis-generator-core</artifactId>
+		<version>${mybatis.generator.version}</version>
+	</dependency>
+	<!-- Hibernate -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+		
+
+	
+	
+	<!-- Cache -->
+	<!-- ehcache -->
+	<dependency>
+		<groupId>net.sf.ehcache</groupId>
+		<artifactId>ehcache-core</artifactId>
+		<version>${ehcache.version}</version>
+	</dependency>
+	
+	
+	<!-- AspectJ -->
+	<!-- 使用Spring aop支持时有用，如@Aspect注解 -->
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${aspectj.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectj.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjtools</artifactId>
+		<version>${aspectj.version}</version>
+	</dependency>
+	
+	
+	
+	<!-- Jackson -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	
+	
+	
+	<!-- log4j -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	
+	<!-- slf4j (Simple Logging Facade for Java) -->
+	<!--  
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${slf4j.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>${slf4j.version}</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>${slf4j.version}</version>
+		<scope>runtime</scope>
+	</dependency>
+  	-->
+  	
+  
+  
+  	<!-- junit -->
+    <dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit.version}</version>
+		<scope>test</scope>
+	</dependency>
+	
+	
+	
+	<!-- 文件上传 -->
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.4</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>1.3.1</version>
+	</dependency>
+	
+	
+	
+	
+	<!-- Others -->
+	<!-- Alibaba Fastjson -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.2.6</version>
+	</dependency>
+	
+	
+	<!-- dom4j -->
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>${dom4j.version}</version>
+	</dependency>
+		
+	
+	
+	<!-- Unknown -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+		
+
+
+  </dependencies>
+  
+  
+  
+  <build>
+		<finalName>SpringTemplate</finalName>
+		<plugins>
+			<!-- Run the JUnit unit tests in an isolated classloader -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+
+			<!-- generate java doc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<javadocDirectory>target/javadoc</javadocDirectory>
+					<reportOutputDirectory>target/javadoc</reportOutputDirectory>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<docencoding>UTF-8</docencoding>
+					<show>private</show>
+				</configuration>
+			</plugin>
+
+			<!-- 部署至本机 -->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<container>
+						<containerId>tomcat6x</containerId>
+						<home>D:\WebServer\apache-tomcat-6.0.39</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>D:\WebServer\apache-tomcat-6.0.39</home>
+					</configuration>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.1.v20150714</version>
+				<configuration>
+					<jvmArgs>-Xmx512m -Xms128m</jvmArgs>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<reload>manual</reload>
+					<!-- <reload>automatic</reload> -->
+					<!-- <useTestScope>true</useTestScope> -->
+					<!-- <jettyXml>${basedir}/jetty.xml</jettyXml> -->
+					<!-- <extraClasspath>${basedir}/target/classes/;${basedir}/etc/jetty/classes/</extraClasspath> -->
+				</configuration>
+				<!-- <dependencies> <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+					<version>${mysql-connector.version}</version> </dependency> </dependencies> -->
+				<executions>
+					<execution>
+						<id>stop-jetty</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+  
+  
+  
+</project>

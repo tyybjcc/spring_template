@@ -1,0 +1,8 @@
+<util:constant>和
+<util:property-path> 见
+com.tyy.spring4.built_in_factory_beans 包
+
+对于List、Map、Set等来说，util标签存在的意义在于:
+可以独立配置成bean，而不需要作为某个Bean的属性
+可以配置集合实现类
+

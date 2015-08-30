@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" p:persistenceUnitName="books_pu"/>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" p:entityManagerFactory-ref="emf"/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+
+	<!-- @PersistenceContext支持 -->
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+	
+	<bean id="bookDao" class="com.tyy.spring_ssh.jpa.dao.impl.BookDaoJpa"/>
+	<bean id="bookService" class="com.tyy.spring_ssh.jpa.service.impl.BookServiceImpl" p:bookDao-ref="bookDao"/>
+	
+	
+	
+	
+
+</beans>

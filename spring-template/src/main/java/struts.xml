@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true"/>	
+	<package name="lee" extends="struts-default">
+		<action name="addBook" class="com.tyy.spring_ssh.jpa.action.BookAction" method="add">
+			<result type="chain">listBooks</result>
+			<result name="error">/WEB-INF/jpa/bookForm.jsp</result>
+		</action>
+		<action name="listBooks" class="com.tyy.spring_ssh.jpa.action.BookAction" method="list">
+			<result>/WEB-INF/jpa/listBooks.jsp</result>
+		</action>
+		<action name="deleteBook" class="com.tyy.spring_ssh.jpa.action.BookAction" method="delete">
+			<result type="chain">listBooks</result>
+		</action>		
+		<action name="*">
+			<result>/WEB-INF/jpa/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

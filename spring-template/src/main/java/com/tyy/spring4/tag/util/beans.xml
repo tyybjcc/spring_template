@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-4.1.xsd
+		" >  
+	
+	<bean id="employee1" class="com.tyy.spring4.tag.util.Employee">
+		<property name="id" value="1" />
+		<property name="name" value="Mary" />
+	</bean>
+	<bean id="employee2" class="com.tyy.spring4.tag.util.Employee">
+		<property name="id" value="2" />
+		<property name="name" value="John" />
+	</bean>
+	
+	<bean id="department" class="com.tyy.spring4.tag.util.Department">
+		<property name="id" value="2012" />
+		<property name="name" value="Noah's Ark Lab" />
+		<!-- Array -->
+		<property name="employeeArray">
+			<array>
+				<ref bean="employee1"/>
+				<ref bean="employee2"/>
+				<ref bean="employee1"/>
+			</array>
+		</property>
+		
+		<!-- List -->
+		<!-- <property name="employeeList">
+			<list>
+				<ref bean="employee1"/>
+				<ref bean="employee2"/>
+				<ref bean="employee1"/>
+			</list>
+		</property> -->
+		<property name="employeeList">
+			<util:list  id="employeeList" list-class="java.util.LinkedList">
+				<ref bean="employee1"/>
+				<ref bean="employee2"/>
+				<ref bean="employee1"/>
+			</util:list>
+		</property> 
+		
+		
+		<!-- Set -->
+		<!-- <property name="employeeSet">
+			<set>
+				<ref bean="employee1"/>
+				<ref bean="employee2"/>
+				<ref bean="employee1"/>
+				<null />
+			</set>
+		</property> -->
+		<property name="employeeSet">
+			<util:set set-class="java.util.HashSet" >
+				<ref bean="employee1"/>
+				<ref bean="employee2"/>
+				<ref bean="employee1"/>
+				<null />
+			</util:set>
+		</property>
+		<!-- Map -->
+		<property name="employeeMap">
+			<util:map map-class="java.util.TreeMap">
+				<!-- key-ref value-ref -->
+				<entry key="e11" value-ref="employee1" />
+				<entry key="e12" value-ref="employee1" />
+				<entry key="e21" value-ref="employee2" />
+				<entry key="e22" value-ref="employee2" />
+			</util:map>
+		</property>
+		<property name="employeeProperties">
+			<!-- 一共三种方式配置properties -->
+			<value>
+				key1=value1
+				key2=value2
+				key3=value3
+			</value>
+			<!-- <props>
+				<prop key="key1">value1</prop>
+				<prop key="key2">value2</prop>
+				<prop key="key3">value3</prop>
+			</props> -->
+			
+			<!-- <util:properties location="classpath:com/tyy/spring4/tag/util/demo.properties" /> -->
+		</property>
+		
+	</bean>
+
+	
+</beans>

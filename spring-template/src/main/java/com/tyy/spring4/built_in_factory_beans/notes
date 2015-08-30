@@ -1,0 +1,3 @@
+PropertyPathFactoryBean:功能类似于getters
+FieldRetrievingFactoryBean:获取静态成员
+MethodInvokingFactoryBean:调用方法

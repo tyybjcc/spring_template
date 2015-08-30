@@ -1,0 +1,30 @@
+com.tyy.spring4.built_in_factory_beans
+java内置的factory bean，例如用来获取成员或静态成员的bean、用来调用方法获取返回值的bean、用来通过getters取值的bean
+
+
+com.tyy.spring4.combined_property
+<property>中的name值可以通过.给成员的属性赋值（不限个数），但必须提供对应的get和set方法
+
+
+com.tyy.spring4.create_bean
+bean的创建：1. 默认构造方法，setters注入； 2. 构造方法，构造函数传参注入； 3. 静态工厂方法； 4。 实例工厂方法； 5. 通过FactoryBean实现类（可以认为是4的另一种表现形式）
+
+
+com.tyy.spring4.event
+ApplicationEvent和ApplicationListener实现Spring容器的事件与监听机制
+
+
+com.tyy.spring4.lookup_method
+对singleton bean中prototype 成员的支持
+
+
+com.tyy.spring4.merge
+类继承支持、抽象bean、bean配置分布实现
+
+
+com.tyy.spring4.spel
+SpEL表达式实例
+
+
+com.tyy.spring4.tag
+p标签用来简化<property>, c标签用来简化<constructor-arg>, util标签用来简化 类静态成员读取、对象get取值、集合与Properties资源配置。

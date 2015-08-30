@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<!-- 为持久化单元指定名称，并通过transaction-type指定事务类型 transaction-type属性合法的属性值有JTA、RESOURCE_LOCAL两个 -->
+	<persistence-unit name="books_pu" transaction-type="RESOURCE_LOCAL">
+		<!-- 指定javax.persistence.spi.PersistenceProvider实现类 -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- 列出该应用需要访问的所有的Entity类, 也可以用<mapping-file>或<jar-file>元素来定义 -->
+		<class>com.tyy.spring_ssh.jpa.domain.Book</class>
+		<properties>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=utf-8" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>

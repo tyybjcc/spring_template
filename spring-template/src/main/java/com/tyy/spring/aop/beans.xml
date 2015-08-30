@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-4.1.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd" >  
+	
+	<!-- target Bean -->
+	<bean id="myService" class="com.tyy.spring.aop.MyService" />
+	
+	<!-- Advice -->
+	<bean id="authenticationMethodBeforeAdvice" class="com.tyy.spring.aop.AuthenticationMethodBeforeAdvice" />
+	<bean id="loggingMethodBeforeAdvice" class="com.tyy.spring.aop.LoggingMethodBeforeAdvice" />
+	
+	<!-- ProxyFactoryBean instances -->
+	<bean id="myServiceWithLogging" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="myService" />
+		<property name="proxyInterfaces">
+			<value>com.tyy.spring.aop.LoggingInter</value>
+			<!-- 多个使用<list> -->
+			<!-- 
+			<list>
+				<value>com.tyy.spring.aop.LoggingInter</value>
+			</list>
+			 -->
+		</property>
+		<property name="interceptorNames">
+			<value>loggingMethodBeforeAdvice</value>
+			<!-- 多个使用list -->
+			<!-- 
+			<list>
+				<value>authenticationMethodBeforeAdvice</value>
+				<value>loggingMethodBeforeAdvice</value>
+			</list>
+			 -->
+		</property>
+	</bean>
+	
+	<!-- 
+	<bean id="authenticationFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean" />
+	<bean id="BothFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean" />
+	 -->
+			
+</beans>
